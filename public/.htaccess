@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /Sistem2/public/
+RewriteBase /public/
 
 # Prevent access to hidden files
 RewriteRule "^\." - [F]
