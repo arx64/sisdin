@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /Sistem2/public/
+
+# Prevent access to hidden files
+RewriteRule "^\." - [F]
+
+# If not a file or directory, route to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]

@@ -1,0 +1,17 @@
+# Ignore files and directories
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+vendor/
+.env
+.env.local
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+*.sublime-workspace
+*.sublime-project
