@@ -63,6 +63,20 @@ CREATE TABLE IF NOT EXISTS `rekomendasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ================================================
+-- TABLE: kontrol
+-- ================================================
+CREATE TABLE IF NOT EXISTS `kontrol` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `risk_id` VARCHAR(10) NOT NULL,
+    `aspek` VARCHAR(100) NOT NULL,
+    `judul_kontrol` VARCHAR(255) NOT NULL,
+    `deskripsi` TEXT NOT NULL,
+    `dokumen_terkait` TEXT NOT NULL,
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ================================================
 -- INSERT USERS (Demo Data)
 -- ================================================
 -- Password: admin123 (hashed with bcrypt)
@@ -88,6 +102,16 @@ INSERT INTO `rekomendasi` (`level_risiko`, `solusi`) VALUES
 ('High', 'Risiko High memerlukan mitigasi dalam jangka pendek dengan rencana implementasi terstruktur. Tindakan mencakup: Update keamanan sistem, Monitoring jaringan aktif, Audit keamanan berkala, Maintenance sistem terjadwal, dan Review kebijakan akses.'),
 ('Medium', 'Risiko Medium dapat dimonitor atau dimitigasi sesuai prioritas bisnis. Rekomendasi: Update software berkala, Backup data mingguan, Monitoring sistem berkala, Pelatihan user, dan Documentation prosedur.'),
 ('Low', 'Risiko Low dapat diterima dan dimonitor secara berkala. Tindakan: Monitoring sistem rutin, Update sistem berkala, Dokumentasi prosedur, Pelaporan berkala, dan Review tahunan.');
+
+-- ================================================
+-- INSERT SAMPLE KONTROL DATA
+-- ================================================
+INSERT INTO `kontrol` (`risk_id`, `aspek`, `judul_kontrol`, `deskripsi`, `dokumen_terkait`) VALUES
+('R6', 'Process & Technology', 'APO12.01 Collect Data & Penggunaan UPS', 'Melakukan pencatatan gangguan listrik dan menyediakan UPS untuk menjaga sistem tetap berjalan.', 'SOP Penanganan Gangguan, Dokumentasi Perangkat'),
+('R7', 'People & Process', 'Pelatihan Sistem Kasir', 'Memberikan pelatihan penggunaan sistem dan validasi transaksi.', 'SOP Penggunaan Sistem, Form Pemeriksaan'),
+('R8', 'Technology & Process', 'Monitoring dan Maintenance Sistem', 'Monitoring performa sistem transaksi dan maintenance berkala.', 'Laporan Monitoring Sistem, Jadwal Maintenance'),
+('R9', 'Process & People', 'APO13.01 ISMS dan Edukasi Password', 'Kebijakan keamanan password dan edukasi pengguna.', 'Kebijakan Keamanan Sistem, SOP Keamanan Akun'),
+('R10', 'Technology & Process', 'Pembatasan Hak Akses', 'Monitoring login dan pengaturan hak akses pengguna.', 'Data Hak Akses Pengguna, Log Aktivitas Sistem');
 
 -- ================================================
 -- INSERT SAMPLE RISIKO DATA

@@ -38,6 +38,7 @@ require_once 'app/controllers/FrameworkController.php';
 require_once 'app/controllers/DesignFactorController.php';
 require_once 'app/controllers/RisikoController.php';
 require_once 'app/controllers/RekomendasiController.php';
+require_once 'app/controllers/KontrolController.php';
 
 // Route the request
 App::route();

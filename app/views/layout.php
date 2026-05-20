@@ -813,6 +813,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="index.php?page=kontrol" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] === 'kontrol') ? 'active' : ''; ?>">
+                        <i class="fas fa-shield-alt"></i> Penetapan Kontrol
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="index.php?page=risiko" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] === 'risiko') ? 'active' : ''; ?>">
                         <i class="fas fa-exclamation-triangle"></i> Penilaian Risiko
                     </a>
@@ -844,9 +849,11 @@
                         <div class="user-name"><?php echo htmlspecialchars($_SESSION['user']['username']); ?></div>
                         <div class="user-role"><?php echo ucfirst($_SESSION['user']['role']); ?></div>
                     </div>
-                    <a href="index.php?page=logout" class="btn-logout">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
+                    <div class="user-clock">
+                        <span id="clock" style="font-weight:600;margin-left:20px;">--:--:--</span>
+                        <br>
+                        <small id="date">-</small>
+                    </div>
                 </div>
             </div>
 
@@ -906,6 +913,33 @@
                 sidebar.classList.remove('show');
                 overlay.classList.remove('show');
             }
+        });
+        // Real-time clock (Jam:Menit:Detik) dan tanggal Bahasa Indonesia
+        function updateClock() {
+            const now = new Date();
+            const pad = (n) => n.toString().padStart(2, '0');
+            const hours = pad(now.getHours());
+            const minutes = pad(now.getMinutes());
+            const seconds = pad(now.getSeconds());
+
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+
+            const dayName = days[now.getDay()];
+            const date = now.getDate();
+            const monthName = months[now.getMonth()];
+            const year = now.getFullYear();
+
+            const clockEl = document.getElementById('clock');
+            const dateEl = document.getElementById('date');
+            if (clockEl) clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+            if (dateEl) dateEl.textContent = `${dayName}, ${date} ${monthName} ${year}`;
+        }
+
+        // Jalankan segera dan setiap detik
+        document.addEventListener('DOMContentLoaded', function() {
+            updateClock();
+            setInterval(updateClock, 1000);
         });
     </script>
 </body>

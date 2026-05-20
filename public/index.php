@@ -117,13 +117,21 @@ try {
 
         case 'rekomendasi':
             $controller = new RekomendasiController();
+
             switch ($action) {
+
                 case 'by-level':
                     $controller->byLevel();
                     break;
+
+                case 'cetak':
+                    $controller->cetak();
+                    break;
+
                 default:
                     $controller->index();
             }
+
             break;
 
         default:

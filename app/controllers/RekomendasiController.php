@@ -4,12 +4,15 @@
  */
 class RekomendasiController extends Controller {
     private $rekomendasiModel;
+    private $risikoModel;
 
     public function __construct() {
         parent::__construct();
         $this->checkAuth();
         require_once __DIR__ . '/../models/Rekomendasi.php';
+        require_once __DIR__ . '/../models/Risiko.php';
         $this->rekomendasiModel = new Rekomendasi();
+        $this->risikoModel = new Risiko();
     }
 
     /**
@@ -40,6 +43,28 @@ class RekomendasiController extends Controller {
         ];
 
         $this->view('rekomendasi/by_level', $data);
+    }
+
+    /**
+     * Cetak PDF rekomendasi
+     */
+    public function cetak()
+    {
+        $risikoList = $this->risikoModel->getAllOrdered();
+        $rekomendasiList = $this->rekomendasiModel->getAll();
+        $rekomendasiMap = [];
+
+        foreach ($rekomendasiList as $item) {
+            $rekomendasiMap[$item['level_risiko']] = $item['solusi'];
+        }
+
+        $data = [
+            'risikoList' => $risikoList,
+            'rekomendasiMap' => $rekomendasiMap
+        ];
+
+        // Render halaman cetak tanpa layout, karena view cetak sudah berisi seluruh dokumen HTML
+        $this->viewRaw('rekomendasi/cetak', $data);
     }
 }
 ?>

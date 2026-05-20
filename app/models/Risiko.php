@@ -82,6 +82,15 @@ class Risiko extends Model {
     }
 
     /**
+     * Get semua risiko untuk laporan, terurut berdasarkan level dan skor
+     */
+    public function getAllOrdered() {
+        $sql = "SELECT * FROM " . $this->table . " 
+                ORDER BY FIELD(level_risiko, 'Extreme', 'High', 'Medium', 'Low'), risk_score DESC";
+        return $this->fetchAll($sql);
+    }
+
+    /**
      * Search risiko
      */
     public function search($keyword) {

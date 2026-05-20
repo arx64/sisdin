@@ -4,9 +4,15 @@
 
 <div class="container-fluid">
     <div class="row mb-4">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <h2><i class="fas fa-lightbulb"></i> Rekomendasi Mitigasi Risiko</h2>
             <p class="text-muted">Rekomendasi penanganan risiko berdasarkan level risiko</p>
+        </div>
+
+        <div class="col-md-6 text-end">
+            <a href="index.php?page=rekomendasi&action=cetak" target="_blank" class="btn btn-danger">
+                <i class="fas fa-file-pdf"></i> Cetak PDF
+            </a>
         </div>
     </div>
 
@@ -81,21 +87,21 @@
                             <p><?php echo $rekom['solusi']; ?></p>
                             <p><strong>Jumlah Risiko Aktif:</strong> <?php echo $rekom['jumlah_risiko']; ?></p>
                             <p><strong>Pengertian Level <?php echo $rekom['level_risiko']; ?>:</strong></p>
-                            <?php 
-                                switch($rekom['level_risiko']) {
-                                    case 'Extreme':
-                                        echo '<p>Risiko ekstrem memerlukan tindakan mitigasi segera dengan alokasi sumber daya maksimal.</p>';
-                                        break;
-                                    case 'High':
-                                        echo '<p>Risiko tinggi memerlukan mitigasi dalam jangka pendek dengan rencana implementasi.</p>';
-                                        break;
-                                    case 'Medium':
-                                        echo '<p>Risiko sedang dapat dimonitor atau dimitigasi sesuai dengan prioritas bisnis.</p>';
-                                        break;
-                                    case 'Low':
-                                        echo '<p>Risiko rendah dapat diterima dan dimonitor secara berkala.</p>';
-                                        break;
-                                }
+                            <?php
+                            switch ($rekom['level_risiko']) {
+                                case 'Extreme':
+                                    echo '<p>Risiko ekstrem memerlukan tindakan mitigasi segera dengan alokasi sumber daya maksimal.</p>';
+                                    break;
+                                case 'High':
+                                    echo '<p>Risiko tinggi memerlukan mitigasi dalam jangka pendek dengan rencana implementasi.</p>';
+                                    break;
+                                case 'Medium':
+                                    echo '<p>Risiko sedang dapat dimonitor atau dimitigasi sesuai dengan prioritas bisnis.</p>';
+                                    break;
+                                case 'Low':
+                                    echo '<p>Risiko rendah dapat diterima dan dimonitor secara berkala.</p>';
+                                    break;
+                            }
                             ?>
                         </div>
                         <div class="modal-footer">

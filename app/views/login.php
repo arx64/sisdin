@@ -28,13 +28,16 @@ $flash = isset($flash) ? $flash : null;
         body {
             /* background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); */
             background-image: url('/public/assets/img/background.jpeg');
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            animation: gradientShift 15s ease infinite;
-            background-size: 200% 200%;
+            /* animation: gradientShift 15s ease infinite; */
+            /* background-size: 200% 200%; */
         }
 
         @keyframes gradientShift {
@@ -437,7 +440,7 @@ $flash = isset($flash) ? $flash : null;
             <div class="login-header">
                 <div class="icon-wrapper">
                     <!-- <i class="fas fa-shield-alt"></i> -->
-                     <img src="/public/assets/img/background.jpeg" alt="Logo RM Jingkrak TOB" style="height: 100px; border-radius: 50%; object-fit: cover;">
+                     <img src="/public/assets/img/logo.jpeg" alt="Logo RM Jingkrak TOB" style="height: 100px; border-radius: 50%; object-fit: cover;">
                 </div>
                 <h1>Risk Management</h1>
                 <p>COBIT 2019 - Ayam Jingkrak TOB</p>
