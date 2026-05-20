@@ -26,7 +26,7 @@ $flash = isset($flash) ? $flash : null;
         }
 
         body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            /* background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); */
             background-image: url('/public/assets/img/background.jpeg');
             min-height: 100vh;
             display: flex;
