@@ -814,7 +814,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="index.php?page=risiko" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] === 'risiko') ? 'active' : ''; ?>">
-                        <i class="fas fa-exclamation-triangle"></i> Data Penilaian
+                        <i class="fas fa-exclamation-triangle"></i> Penilaian Risiko
                     </a>
                 </li>
                 <li class="nav-item">

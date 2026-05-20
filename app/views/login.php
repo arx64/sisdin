@@ -27,6 +27,7 @@ $flash = isset($flash) ? $flash : null;
 
         body {
             background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            background-image: url('/public/assets/img/background.jpeg');
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -435,7 +436,8 @@ $flash = isset($flash) ? $flash : null;
         <div class="login-card">
             <div class="login-header">
                 <div class="icon-wrapper">
-                    <i class="fas fa-shield-alt"></i>
+                    <!-- <i class="fas fa-shield-alt"></i> -->
+                     <img src="/public/assets/img/background.jpeg" alt="Logo RM Jingkrak TOB" style="height: 100px; border-radius: 50%; object-fit: cover;">
                 </div>
                 <h1>Risk Management</h1>
                 <p>COBIT 2019 - Ayam Jingkrak TOB</p>

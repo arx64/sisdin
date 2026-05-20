@@ -183,7 +183,7 @@
 
                                         <?php for ($i = 1; $i <= 5; $i++): ?>
 
-                                            <td class="border-0 text-center pt-2">
+                                            <td class="border-0 text-center">
 
                                                 <div class="fw-bold">
                                                     <?php echo $i; ?>
@@ -252,15 +252,15 @@
     <style>
         .matrix-table {
             border-collapse: separate;
-            border-spacing: 8px;
+            border-spacing: 1px;
         }
 
         .matrix-box {
 
-            width: 95px;
-            height: 75px;
+            width: 65px;
+            height: 50px;
 
-            border-radius: 12px;
+            border-radius: 8px;
 
             display: flex;
             flex-direction: column;
@@ -277,8 +277,8 @@
         }
 
         .risk-id {
-            font-size: 13px;
-            line-height: 18px;
+            font-size: 11px;
+            line-height: 14px;
         }
 
         .vertical-text {
@@ -319,21 +319,19 @@
                         <table class="table table-hover mb-0" style="font-size: 14px;">
                             <thead>
                                 <tr>
-                                    <th width="5%">No</th>
-                                    <th width="10%">Risk ID</th>
-                                    <th width="20%">Nama Risiko</th>
+                                    <th width="5%">Risk ID</th>
+                                    <th width="10%">Nama Risiko</th>
                                     <th width="12%">Aset</th>
-                                    <th width="8%">L</th>
-                                    <th width="8%">C</th>
-                                    <th width="8%">Score</th>
-                                    <th width="15%">Level</th>
+                                    <th width="5%">L</th>
+                                    <th width="5%">C</th>
+                                    <th width="5%">Score</th>
+                                    <th width="5%">Level</th>
                                     <th width="18%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach ($risikoList as $risiko): ?>
                                     <tr>
-                                        <td><?php echo ++$nomor; ?></td>
                                         <td>
                                             <span class="badge bg-dark">
                                                 <?php echo $risiko['risk_id']; ?>
